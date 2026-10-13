@@ -1,0 +1,16 @@
+.env
+data/
+build/
+.gradle/
+**/build/
+web/node_modules/
+web/dist/
+web/.angular/
+*.log
+.idea/
+.vscode/
+docs/demo/frames/
+docs/demo/frames.txt
+docs/demo/node_modules/
+docs/demo/*.wav
+docs/demo/raw.webm

@@ -1,0 +1,5 @@
+{
+  "/api": { "target": "http://localhost:8087", "secure": false },
+  "/v3": { "target": "http://localhost:8087", "secure": false },
+  "/swagger-ui": { "target": "http://localhost:8087", "secure": false }
+}

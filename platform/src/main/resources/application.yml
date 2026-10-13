@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: openoed-platform
+  threads:
+    virtual:
+      enabled: true
+  jackson:
+    default-property-inclusion: non_null
+
+server:
+  port: ${PORT:8090}
+  shutdown: graceful
+  error:
+    include-stacktrace: never
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+app:
+  data-dir: ${PLATFORM_DATA:../data/platform}
+  api-base-url: ${OED_API_URL:http://localhost:8087}
+  internal-token: ${INTERNAL_TOKEN:dev-internal-token}

@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/openoed_test
+    username: openoed
+    password: openoed
+
+app:
+  jwt:
+    key-path: ${java.io.tmpdir}/openoed-test-keys
+  platform:
+    base-url: http://127.0.0.1:9
+  claude:
+    enabled: false
+    api-key: ""
+  deadlines:
+    simulation-enabled: true
+    scheduler-delay: PT1S
+  seed:
+    enabled: false
+  storage:
+    specimen-dir: ${java.io.tmpdir}/openoed-test-specimens
+  relay:
+    delay-ms: 3600000

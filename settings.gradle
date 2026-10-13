@@ -1,0 +1,3 @@
+rootProject.name = 'openoed'
+
+include 'fraud-engine', 'deadline-lambda', 'platform', 'oed-api'

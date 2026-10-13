@@ -1,0 +1,6 @@
+app:
+  deadlines:
+    simulation-enabled: true
+    scheduler-delay: PT30M
+  seed:
+    enabled: true

@@ -1,0 +1,90 @@
+spring:
+  application:
+    name: oed-api
+  threads:
+    virtual:
+      enabled: true
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5433/openoed}
+    username: ${DB_USER:openoed}
+    password: ${DB_PASSWORD:openoed}
+    hikari:
+      pool-name: oed-hikari
+      maximum-pool-size: ${DB_POOL_SIZE:10}
+      minimum-idle: 1
+      connection-timeout: 5000
+      max-lifetime: 1800000
+      connection-init-sql: SET search_path TO oed, public
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: oed
+        jdbc:
+          time_zone: UTC
+        order_inserts: true
+  flyway:
+    schemas: oed
+    default-schema: oed
+    create-schemas: true
+    locations: classpath:db/migration
+  mvc:
+    problemdetails:
+      enabled: true
+  jackson:
+    default-property-inclusion: non_null
+  servlet:
+    multipart:
+      max-file-size: 8MB
+      max-request-size: 9MB
+
+server:
+  port: ${PORT:8087}
+  shutdown: graceful
+  error:
+    include-stacktrace: never
+    include-message: never
+  forward-headers-strategy: framework
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+app:
+  jwt:
+    issuer: ${JWT_ISSUER:http://localhost:8087}
+    access-ttl: 15m
+    refresh-ttl: 14d
+    key-path: ${JWT_KEY_PATH:../data/keys}
+  platform:
+    base-url: ${PLATFORM_URL:http://localhost:8090}
+    internal-token: ${INTERNAL_TOKEN:dev-internal-token}
+  claude:
+    enabled: ${CLAUDE_ENABLED:true}
+    api-key: ${ANTHROPIC_API_KEY:}
+    model: ${CLAUDE_MODEL:claude-sonnet-4-5}
+    base-url: ${CLAUDE_BASE_URL:https://api.anthropic.com}
+  deadlines:
+    statutory-months: 6
+    scheduler-delay: ${DEADLINE_DELAY:PT2M}
+    simulation-enabled: false
+  seed:
+    enabled: false
+  storage:
+    specimen-dir: ${SPECIMEN_DIR:../data/specimens}
+  relay:
+    delay-ms: 2000

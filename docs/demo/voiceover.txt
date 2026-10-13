@@ -1,0 +1,7 @@
+OpenOED is a free, open workbench for trademark fraud and statutory deadlines. No payments, and anyone can sign up.
+
+The Office of Enrollment and Discipline dashboard shows the priority queue. Aurora Lumen scores one hundred, critical. The rules engine flags a known shell address, a machine-written goods description, stripped camera metadata, and a suspended attorney. High scores are routed to manual review automatically.
+
+An examiner then opens that filing from outside their art unit, and issues an office action. The event is published to a queue, and a scheduler holds the six-month statutory clock. When the timer fires with no response, a function marks the application abandoned and sends the final notice.
+
+The Inspector General ledger is append-only. It flags that out-of-art-unit visit. Everything runs locally, and maps onto Aurora, SQS, EventBridge, Lambda, SES, and DynamoDB.
